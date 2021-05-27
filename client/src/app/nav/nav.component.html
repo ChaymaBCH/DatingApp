@@ -20,6 +20,7 @@ bg-primary">
         </ul>
 
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+            <img class="ml-2" src="{{user.photoUrl}}" alt="{{user.username}}">
             <a class="dropdown-taggle text-light" dropdownToggle>Welcome {{user.userName |titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
                 <a routerLink='/member/edit' class="dropdown-item">Edit Profile</a>
