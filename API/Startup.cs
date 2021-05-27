@@ -57,15 +57,13 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyHeader()
-                              .AllowAnyHeader()
-                              .WithOrigins("http://localhost:4200") 
-                        );
-
+                .AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200"));      
+             
             app.UseAuthentication();
             
             app.UseAuthorization();
